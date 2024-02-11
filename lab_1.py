@@ -133,6 +133,46 @@ s=" ".join(s)
 import re
 x=str(input())
 s=re.findall(r'\d{1,2} \w{3,8} \d\d\d\d', x)
-print(s)
+#print(s)
 
+
+# №6-8
+
+# 6 Дана строка. Необходимо подсчитать количество чисел в этой строке,
+# значение которых больше 5
+
+def func_6(x):
+    s=x.split()
+    k=0
+    for i in range(0,len(s)):
+        if s[i].isdigit():
+            if int(s[i])>5:
+                k+=1
+    return k
+print(func_6(x))
+
+# 12 Дана строка. Необходимо найти те символы кириллицы, которые не
+# задействованы в данной строке.
+
+def func_12(x):
+    x=x.lower()
+    alph = 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя'
+    m=alph
+    for i in range(0,len(x)):
+        m=m.replace(x[i],"")
+    return m
+print(func_12(x))
+
+# 13 Дана строка. Необходимо найти максимальное из имеющихся в ней
+# натуральных чисел.
+
+def func_13(x):
+    s = x.split()
+    max=0
+    for i in range(0, len(s)):
+        if s[i].isdigit():
+            if (int(s[i])) > max:
+               max=int(s[i])
+    return max
+print(func_13(x))
 
