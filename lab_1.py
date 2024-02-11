@@ -176,3 +176,13 @@ def func_13(x):
     return max
 print(func_13(x))
 
+
+
+#  9 Прочитать список строк с клавиатуры. Упорядочить по длине
+# строки.
+
+def func_9(x):
+    s = x.split()
+    s.sort(key=len)
+    return " ".join(s)
+print(func_9(x))
