@@ -131,7 +131,7 @@ s=" ".join(s)
 # Дана строка. Необходимо найти все даты, которые описаны в
 # виде "31 февраля 2007".
 import re
-x=str(input())
+#x=str(input())
 s=re.findall(r'\d{1,2} \w{3,8} \d\d\d\d', x)
 #print(s)
 
@@ -149,7 +149,7 @@ def func_6(x):
             if int(s[i])>5:
                 k+=1
     return k
-print(func_6(x))
+#print(func_6(x))
 
 # 12 Дана строка. Необходимо найти те символы кириллицы, которые не
 # задействованы в данной строке.
@@ -161,7 +161,7 @@ def func_12(x):
     for i in range(0,len(x)):
         m=m.replace(x[i],"")
     return m
-print(func_12(x))
+#print(func_12(x))
 
 # 13 Дана строка. Необходимо найти максимальное из имеющихся в ней
 # натуральных чисел.
@@ -174,7 +174,7 @@ def func_13(x):
             if (int(s[i])) > max:
                max=int(s[i])
     return max
-print(func_13(x))
+#print(func_13(x))
 
 
 
@@ -185,4 +185,23 @@ def func_9(x):
     s = x.split()
     s.sort(key=len)
     return " ".join(s)
-print(func_9(x))
+#print(func_9(x))
+
+
+#Задание 10 Дан список строк с клавиатуры. Упорядочить по количеству
+#слов в строке.
+
+
+n = int(input())
+x = []
+for i in range(n):
+    x.append(input())
+def func_10(x,n):
+    s=[]
+    for i in range (0, n):
+        s.append((x[i].split()).copy())
+    s.sort(key=len)
+    for i in range(0, n):
+        s[i]=" ".join(s[i])
+    return(s)
+print(func_10(x,n))
