@@ -192,10 +192,10 @@ def func_9(x):
 #слов в строке.
 
 
-n = int(input())
-x = []
-for i in range(n):
-    x.append(input())
+#n = int(input())
+#x = []
+#for i in range(n):
+   # x.append(input())
 def func_10(x,n):
     s=[]
     for i in range (0, n):
@@ -204,4 +204,121 @@ def func_10(x,n):
     for i in range(0, n):
         s[i]=" ".join(s[i])
     return(s)
-print(func_10(x,n))
+#print(func_10(x,n))
+
+
+
+#-----------------------------------------------------------------------------------------------------------------------------
+# №11-14
+
+
+# 3 Отсортировать строки в указанном порядке В порядке увеличения разницы между частотой наиболее часто
+# встречаемого символа в строке и частотой его появления в алфавите.
+
+
+def poev_elem(x):
+    alp='ESUKTHGXADYJOLPQNFWZRCBIMV'
+    alp=alp.lower()
+    ch='0.130 0.061	0.024 0.004 0.105 0.052	0.020 0.0015 0.081 0.038 0.019 0.0013 0.079	0.034 0.019	0.0011 0.071 0.029 0.015 0.0007	0.068 0.027	0.014 0.063	0.025 0.009'
+    nch=ch.split()
+    count=[]
+    for i in range(0,len(x)):
+        count.append(x.count(x[i]))
+    maxim=max(count)
+    for i in range(0,len(x)):
+        if count[i]==maxim:
+            elem=x[i]
+    chastota_str=float(maxim/len(x))
+    for i in range(0,len(alp)):
+        if elem==alp[i]:
+            chastota_alp=float(nch[i])
+    razn=chastota_str-chastota_alp
+    return razn
+
+n = int(input())
+x = []
+for i in range(n):
+    x.append(input())
+def func_3(x,n):
+    s=[]
+    for i in range (0, n):
+        s.append(x[i])
+    for j in range(n - 1):
+        for k in range(n - j - 1):
+            if poev_elem(s[k]) > poev_elem(s[k + 1]):
+                s[k], s[k + 1] = s[k + 1], s[k]
+    for i in range(0, n):
+        s[i]=" ".join(s[i])
+    return(s)
+#print(func_3(x,n))
+
+# 6 Отсортировать строки в указанном порядке В порядке увеличения медианного значения выборки строк (прошлое
+# медианное значение удаляется из выборки и производится поиск нового
+# медианного значения).
+
+def func_6(x,n):
+    s=[]
+    itog = []
+    for i in range (0, n):
+        s.append(x[i])
+        s[i]=s[i].split()
+    for i in range(0,n):
+        spr = sorted(s[i])
+        l=len(spr)
+        if int(len(spr[i]) % 2) == 0:
+            median = (spr[l / 2-1] + spr[l / 2 ]) / 2
+        else:
+            median = spr[int((l - 1) / 2)]
+        itog.append([median, s[i]])
+    itog = sorted(itog)
+    for i in range(0, n):
+        itog[i]=" ".join(itog[i][1])
+    return(itog)
+#print(func_6(x,n))
+
+
+# 9 Отсортировать строки в указанном порядке В порядке увеличения квадратичного отклонения между наибольшим
+# ASCII-кодом символа строки и разницы в ASCII-кодах пар зеркально
+# расположенных символов строки (относительно ее середины).
+
+
+def func_9(x, n):
+    s = []
+    itog = []
+    for i in range(0, n):
+        s.append(x[i])
+    for i in range(0,n):
+        m=ord(max(s[i]))
+        razn=0
+        l=len(s[i])
+        for j in range(0,int(l/2)):
+            razn+=abs(ord(s[i][j])-ord(s[i][l-1-j]))
+        itog.append([(m-razn)** 2, s[i]])
+    itog = sorted(itog)
+    for i in range(0, n):
+        itog[i] = " ".join(itog[i][1])
+    return itog
+#print(func_9(x, n))
+
+# 10 Отсортировать строки в указанном порядке В порядке увеличения среднего количества «зеркальных» троек
+# (например, «ada») символов в строке.
+
+def func_10(x, n):
+    s = []
+    for i in range(n):
+        c = 0
+        for j in range(len(x[i]) - 2):
+            if x[i][j] == x[i][j + 2]:
+                c += 1
+        s.append([c, x[i]])
+    s = sorted(s)
+    for i in range(0, n):
+        s[i] = " ".join(s[i][1])
+    return s
+
+#print(func_10(x, n))
+
+
+
+
+
