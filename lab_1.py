@@ -235,10 +235,10 @@ def poev_elem(x):
     razn=chastota_str-chastota_alp
     return razn
 
-n = int(input())
-x = []
-for i in range(n):
-    x.append(input())
+#n = int(input())
+#x = []
+#for i in range(n):
+    #x.append(input())
 def func_3(x,n):
     s=[]
     for i in range (0, n):
@@ -318,7 +318,102 @@ def func_10(x, n):
 
 #print(func_10(x, n))
 
+# №15-19
 
+
+# 12 Дан целочисленный массив. Необходимо переставить в обратном
+# порядке элементы массива, расположенные между его минимальным и
+# максимальным элементами.
+
+n=int(input())
+mass=[]
+for i in range(0,n):
+    x=int(input())
+    mass.append(x)
+def func_12(mass):
+    mi=min(mass)
+    ma=max(mass)
+    j=0
+    for i in mass:
+        if i == mi:
+            mi_in=j
+        if i == ma:
+            ma_in=j
+        j += 1
+    if(ma_in<mi_in):
+        lev=ma_in
+        prav=mi_in
+        ma_in,mi_in=mi_in,ma_in
+    else:
+        prav = ma_in
+        lev = mi_in
+    mass_desc=mass[:lev+1]+mass[ma_in-1:mi_in:-1]+mass[prav:]
+    return mass_desc
+#print(func_12(mass))
+
+# 24 Дан целочисленный массив. Необходимо найти два наибольших
+# элемента.
+
+def func_24(mass):
+    ma=max(mass)
+    m=mass.copy()
+    j=0
+    for i in mass:
+        if i == ma:
+            ma_in=j
+            m.pop(j)
+            j-=1
+        j += 1
+    mma=max(m)
+    return ma," ",mma
+#print(func_24(mass))
+
+
+# 36 Дан целочисленный массив. Необходимо найти максимальный
+# нечетный элемент.
+
+def func_36(mass):
+    ma=0
+    j=0
+    for i in mass:
+        if i >ma and i%2==1:
+            ma=i
+        j += 1
+    return ma
+#print(func_36(mass))
+
+# 48 Для введенного списка построить список с номерами элемента,
+# который повторяется наибольшее число раз.
+
+def func_48(mass):
+    count = []
+    num=[]
+    for i in range(0, len(mass)):
+        count.append(mass.count(mass[i]))
+    maxim = max(count)
+    for i in range(0, len(mass)):
+        if count[i] == maxim:
+            elem = mass[i]
+    for i in range(0, len(mass)):
+        if elem==mass[i]:
+            num.append(i)
+    return num
+#print(func_48(mass))
+
+
+# 60 Дан список. Построить массив из элементов, делящихся на свой
+# номер и встречающихся в исходном массиве 1 раз.
+
+def func_60(mass):
+    count = []
+    num=[]
+    for i in range(0, len(mass)):
+        count.append(mass.count(mass[i]))
+    for i in range(1, len(mass)):
+        if (count[i] == 1) and (mass[i]%(i)==0):
+            num.append(mass[i])
+    return num
+print(func_60(mass))
 
 
 
