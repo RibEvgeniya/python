@@ -4,10 +4,10 @@ import datetime
 con=sqlite3.connect('db_insurance_company.db')
 
 cur = con.cursor()
-cur.execute('DROP TABLE IF EXISTS  Client')
-cur.execute('DROP TABLE IF EXISTS  Branch')
-cur.execute('DROP TABLE IF EXISTS  Employee')
-cur.execute('DROP TABLE IF EXISTS  Contract')
+#cur.execute('DROP TABLE IF EXISTS  Client')
+#cur.execute('DROP TABLE IF EXISTS  Branch')
+#cur.execute('DROP TABLE IF EXISTS  Employee')
+#cur.execute('DROP TABLE IF EXISTS  Contract')
 
 
 command='''CREATE TABLE IF NOT EXISTS Client
@@ -109,8 +109,9 @@ for row in all_columns:
     print("Имя:", row[1])
     print("Фамилия:", row[2])
     print("Отчество:", row[3])
-    print("Номер телефона:", row[4])
-    print("Филиал:", row[5], end="\n\n")
+    print("Пол:", row[4])
+    print("Номер телефона:", row[5])
+    print("Филиал:", row[6], end="\n\n")
 
 
 command="""Select Contract.id,Contract.date, Client.name,Client.surname from Contract, Client WHERE Client.id==Contract.client_id and client_id=='2';"""
