@@ -4,10 +4,10 @@ import datetime
 con=sqlite3.connect('db_insurance_company.db')
 
 cur = con.cursor()
-#cur.execute('DROP TABLE IF EXISTS  Client')
-#cur.execute('DROP TABLE IF EXISTS  Branch')
-#cur.execute('DROP TABLE IF EXISTS  Employee')
-#cur.execute('DROP TABLE IF EXISTS  Contract')
+cur.execute('DROP TABLE IF EXISTS  Client')
+cur.execute('DROP TABLE IF EXISTS  Branch')
+cur.execute('DROP TABLE IF EXISTS  Employee')
+cur.execute('DROP TABLE IF EXISTS  Contract')
 
 
 command='''CREATE TABLE IF NOT EXISTS Client
