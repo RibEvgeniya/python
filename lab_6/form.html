@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta name="viewport" content="width=device-width initial-scale=1,shrink-to-fit=no">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<form action="cgi-bin/client.py" method="POST">
+    <h2>Формы для заполнения таблиц</h2>
+    <fieldset>
+      <legend>Форма для заполнения полей таблицы Клиента</legend>
+      <ul>
+        <li>
+          <label for="name">Имя:*</label>
+          <input type="text" name="name" placeholder="Иван" id="name" required>
+        </li>
+        <li>
+            <label for="surname">Фамилия:*</label>
+            <input type="text" name="surname" placeholder="Иванов" id="surname" required>
+        </li>
+        <li>
+          <label for="patronymic">Отчество:*</label>
+          <input type="text" name="patronymic" placeholder="Иванович" id="patronymic" required>
+        </li>
+     <li>
+          <label for="phone">Номер телефона:*</label>
+          <input type="text" name="phone" placeholder="1111111111" id="phone" min="10" max="12" required>
+        </li>
+      </ul>
+    </fieldset>
+	 <div>
+      <button type="submit">Отправить</button>
+    </div>
+
+
+	</form>
+<form action="cgi-bin/employee.py" method="POST">
+    <fieldset>
+      <legend>Форма для заполнения полей таблицы Сотрудника</legend>
+      <ul>
+        <li>
+          <label for="name_emp">Имя:*</label>
+          <input type="text" name="name_emp" placeholder="Иван" id="name_emp" required>
+        </li>
+        <li>
+            <label for="surname_emp">Фамилия:*</label>
+            <input type="text" name="surname_emp" placeholder="Иванов" id="surname_emp" required>
+        </li>
+        <li>
+          <label for="patronymic_emp">Отчество:*</label>
+          <input type="text" name="patronymic_emp" placeholder="Иванович" id="patronymic_emp" required>
+        </li>
+     <li>
+          <label for="phone_emp">Номер телефона:*</label>
+          <input type="text" name="phone_emp" placeholder="1111111111" id="phone_emp" min="10" max="12" required>
+        </li>
+          <li>
+          <label for="gender">Пол:*</label>
+          <input type="text" name="gender" placeholder="Средний" id="gender" max="10" required>
+        </li>
+          <li>
+          <label for="branch_id">Номер филиала:*</label>
+          <input type="number" name="branch_id" placeholder="000" id="branch_id"  required>
+        </li>
+      </ul>
+    </fieldset>
+	 <div>
+      <button type="submit">Отправить</button>
+
+    </div>
+
+	</form>
+<form action="cgi-bin/branch.py" method="POST">
+    <fieldset>
+      <legend>Форма для заполнения полей таблицы Филиала</legend>
+      <ul>
+      <li>
+        <label for="name_branch">Название филиала:*</label>
+        <input type="text" name="name_branch" placeholder="Перввый " id="name_branch" required>
+      </li>
+          <li>
+        <label for="city_branch">Город филиала:*</label>
+        <input type="text" name="city_branch" placeholder="Москва " id="city_branch" required>
+      </li>
+      <li>
+          <label for="address_branch">Адрес филиала:*</label>
+          <input type="text" name="address_branch" placeholder="Ставропольская 1" id="address_branch" required>
+      </li>
+    </ul>
+    </fieldset>
+                <div>
+      <button type="submit">Отправить</button>
+    </div>
+</form>
+    <form action="cgi-bin/contract.py" method="POST">
+<fieldset>
+      <legend>Форма для заполнения полей таблицы Документ</legend>
+      <ul>
+      <li>
+        <label for="date">Дата заключения:*</label>
+        <input type="text" name="date" placeholder="2020-11-11 " id="date" required>
+      </li>
+          <li>
+        <label for="insurance_summ">Сумма страхования:*</label>
+        <input type="number" name="insurance_summ" placeholder="1000000 " id="insurance_summ" required>
+      </li>
+          <li>
+        <label for="date">Платеж страхования:*</label>
+        <input type="тгьиук" name="insurance_payment" placeholder="10000 " id="insurance_payment" required>
+      </li>
+          <li>
+        <label for="object">Объект страхования:*</label>
+        <input type="text" name="object" placeholder="Машина " id="object" required>
+      </li>
+          <li>
+        <label for="name_of_insurance">Вид страхования:*</label>
+        <input type="text" name="name_of_insurance" placeholder="личная " id="name_of_insurance" required>
+      </li>
+      <li>
+          <label for="id_emp1">Номер сотрудника:*</label>
+          <input type="number" name="id_emp1" placeholder="1" id="id_emp1" required>
+      </li>
+
+      <li>
+          <label for="id_client">Номер клиента:*</label>
+          <input type="number" name="id_client" placeholder="1" id="id_client" required>
+      </li>
+          <li>
+          <label for="branch_id1">Номер филиала:*</label>
+          <input type="number" name="branch_id1" placeholder="1" id="branch_id1"  required>
+        </li>
+    </ul>
+    </fieldset>
+
+                <div>
+      <button type="submit">Отправить</button>
+    </div>
+</form>
+</html>

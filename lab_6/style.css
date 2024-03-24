@@ -1,0 +1,26 @@
+form
+{
+background-color:#F0FFFF;
+}
+h2
+{
+    font-size: 25px;
+    color: #008080;
+    text-align: center;
+}
+legend
+{
+    font-size: 20px;
+    color: #008080;
+
+}
+fieldset
+{
+  border: thick double#00FA9A;
+  background-color: #98FB98;
+}
+label
+{
+   font-size:17px;
+    color: #2F4F4F;
+}
