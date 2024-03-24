@@ -4,6 +4,10 @@ import datetime
 con=sqlite3.connect('db_insurance_company.db')
 
 cur = con.cursor()
+cur.execute('DROP TABLE IF EXISTS  Client')
+cur.execute('DROP TABLE IF EXISTS  Branch')
+cur.execute('DROP TABLE IF EXISTS  Employee')
+cur.execute('DROP TABLE IF EXISTS  Contract')
 
 
 command='''CREATE TABLE IF NOT EXISTS Client
@@ -83,15 +87,58 @@ cur.execute(command)
 
 
 command='''INSERT INTO Contract
-   VALUES(NULL,'2019-06-28','3000000','40000','0','1','1','машина', 'имущественное');'''
+   VALUES(NULL,'2019-06-28','3000000','40000','1','2','2','машина', 'имущественное');'''
 cur.execute(command)
 command='''INSERT INTO Contract
-   VALUES(NULL,'2020-03-08','5000000','60000','2','0','0','квартира', 'имущественное');'''
+   VALUES(NULL,'2020-03-08','5000000','60000','3','1','1','квартира', 'имущественное');'''
 cur.execute(command)
 command='''INSERT INTO Contract
-   VALUES(NULL,'2020-11-01','7000000','70000','1','2','1','дом', 'имущественное');'''
+   VALUES(NULL,'2020-11-01','7000000','70000','2','3','2','дом', 'имущественное');'''
 cur.execute(command)
 con.commit()
+
+
+command="""Select* from Employee;"""
+cur.execute(command)
+all_columns = cur.fetchall()
+print("Все сотрудники. Число записей:  ", len(all_columns))
+
+print("Записи:")
+for row in all_columns:
+    print("ID:", row[0])
+    print("Имя:", row[1])
+    print("Фамилия:", row[2])
+    print("Отчество:", row[3])
+    print("Номер телефона:", row[4])
+    print("Филиал:", row[5], end="\n\n")
+
+
+command="""Select Contract.id,Contract.date, Client.name,Client.surname from Contract, Client WHERE Client.id==Contract.client_id and client_id=='2';"""
+cur.execute(command)
+all_columns = cur.fetchall()
+print("Клиент 2 и его контракты. Число записей:  ", len(all_columns))
+
+print("Записи:")
+for row in all_columns:
+    print("ID контракта:", row[0])
+    print("Дата заключения:", row[1])
+    print("Имя клиента:", row[2])
+    print("Фамилия Клиента:", row[3], end="\n\n")
+
+
+command="""Select Contract.id,Contract.client_id,Contract.date,Contract.name_of_insurance, Client.name,Client.surname from Contract, Client WHERE Client.id==Contract.client_id;"""
+cur.execute(command)
+all_columns = cur.fetchall()
+print("Имущественные контракты. Число записей:  ", len(all_columns))
+
+print("Записи:")
+for row in all_columns:
+    print("ID контракта:", row[0])
+    print("ID клиента:", row[1])
+    print("Дата заключения:", row[2])
+    print("Вид страхования:", row[3])
+    print("Имя клиента:", row[4])
+    print("Фамилия Клиента:", row[5], end="\n\n")
 
 
 
