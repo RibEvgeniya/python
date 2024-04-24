@@ -5,5 +5,7 @@ import os
 
 urlpatterns = [
     path('client/<int:id>/',views.client_detail),
-    path('client/list',views.client_list)
+    path('client/list',views.client_list),
+    path('client/add',views.client_create),
+    path('client/<int:id>/update',views.client_update)
 ]

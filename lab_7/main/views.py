@@ -1,11 +1,37 @@
 from django.shortcuts import render,get_object_or_404
 from django.http import HttpResponse
 from .models import Client
+from .forms import ClientForm
 # Create your views here.
 
 
-def client_home(request):
-    return HttpResponse('<h1>Client home</h1>')
+def client_create(request):
+    form=ClientForm()
+    if request.method=='POST':
+        name=request.POST.get('name')
+        surname = request.POST.get('surname')
+        patronymic = request.POST.get('patronymic')
+        phone=request.POST.get('phone')
+        Client.objects.create(name=name,surname=surname,patronymic=patronymic,phone=phone)
+    context={
+    'form':form,
+    }
+    return render(request, 'add_client.html', context)
+
+
+def client_update(request,id):
+    instance = get_object_or_404(Client, id=id)
+    form=ClientForm(request.POST or None)
+    if form.is_valid():
+        instance=form.save(commit=False)
+        instance.save()
+        form.cleaned_data
+    context={
+        'form':form,
+        'instance':instance,
+        'id':id,
+    }
+    return render(request, 'update_client.html', context)
 
 def client_detail(request,id):
     instance=get_object_or_404(Client,id=id)

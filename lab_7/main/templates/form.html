@@ -8,9 +8,9 @@
     <h2>{{name}}</h2>
     <ul>
         {% for item in queryset %}
-            <li>
+        <li>
                 <p>ID:{{ item.id }}<p>
-                <p>ФИО: {{ item.name }} {{ item.surname }} {{item.patronymic}}<p>
+                <p> ФИО: <a href="/client/{{item.id}}/"><h2> {{ item.name }} {{ item.surname }} {{item.patronymic}}</h2></a><p>
                 <p>Номер телефона:{{ item.phone }}<p>
             </li>
         {% endfor %}
