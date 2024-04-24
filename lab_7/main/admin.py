@@ -1,16 +1,16 @@
 from django.contrib import admin
-from . import models
+from .models import Client,Employee,Branch,Contract
 
 # Register your models here.
 
 class BranchInstanceInline(admin.TabularInline):
-    model=models.Employee
+    model=Employee
 
 class EmployeeInstanceInline(admin.TabularInline):
-    model=models.Contract
+    model=Contract
 
 class ClientInstanceInline(admin.TabularInline):
-    model=models.Contract
+    model=Contract
 
 class ClientModelAdmin(admin.ModelAdmin):
     list_display=['__unicode__','name','surname','patronymic','phone']
@@ -20,7 +20,7 @@ class ClientModelAdmin(admin.ModelAdmin):
 
     inlines = [ClientInstanceInline]
     class Meta:
-        model=models.Client
+        model=Client
 class BranchModelAdmin(admin.ModelAdmin):
     list_display=['__unicode__','name','city','adress','phone']
     list_display_links = ['name','city']
@@ -29,7 +29,7 @@ class BranchModelAdmin(admin.ModelAdmin):
 
     inlines=[BranchInstanceInline]
     class Meta:
-        model=models.Branch
+        model=Branch
 
 class EmployeeModelAdmin(admin.ModelAdmin):
     list_display=['__unicode__','name','surname','patronymic','phone','email','branch']
@@ -41,7 +41,7 @@ class EmployeeModelAdmin(admin.ModelAdmin):
 
     inlines = [EmployeeInstanceInline]
     class Meta:
-        model=models.Employee
+        model=Employee
 
 class ContractModelAdmin(admin.ModelAdmin):
     list_display=['__unicode__','name_of_insurance','object','client','employee','client']
@@ -49,10 +49,10 @@ class ContractModelAdmin(admin.ModelAdmin):
     list_filter=['name_of_insurance']
     search_fields = ['name_of_insurance','object','client','employee','client']
     class Meta:
-        model=models.Contract
+        model=Contract
 
 
-admin.site.register(models.Client,ClientModelAdmin)
-admin.site.register(models.Employee,EmployeeModelAdmin)
-admin.site.register(models.Branch,BranchModelAdmin)
-admin.site.register(models.Contract,ContractModelAdmin)
+admin.site.register(Client,ClientModelAdmin)
+admin.site.register(Employee,EmployeeModelAdmin)
+admin.site.register(Branch,BranchModelAdmin)
+admin.site.register(Contract,ContractModelAdmin)

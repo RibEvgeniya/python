@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+	<title>{{title}}</title>
+  </head>
+  <body>
+    <h1>Данные:</h1>
+    <h2>{{name}}</h2>
+    <ul>
+        {% for item in queryset %}
+            <li>
+                <p>ID:{{ item.id }}<p>
+                <p>ФИО: {{ item.name }} {{ item.surname }} {{item.patronymic}}<p>
+                <p>Номер телефона:{{ item.phone }}<p>
+            </li>
+        {% endfor %}
+    </ul>
+
+  </body>
+</html>

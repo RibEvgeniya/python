@@ -4,6 +4,6 @@ from . import views
 import os
 
 urlpatterns = [
-    path('',views.index),
-    path('about',views.about)
+    path('client/<int:id>/',views.client_detail),
+    path('client/list',views.client_list)
 ]
