@@ -19,17 +19,17 @@ def client_create(request):
     return render(request, 'add_client.html', context)
 
 
-def client_update(request,id):
-    instance = get_object_or_404(Client, id=id)
-    form=ClientForm(request.POST or None)
+def client_update(request,id1):
+    instance = get_object_or_404(Client, id=id1)
+    form=ClientForm(request.POST,instance=instance)
     if form.is_valid():
         instance=form.save(commit=False)
         instance.save()
-        form.cleaned_data
+        form.cleaned_data.get('name')
     context={
         'form':form,
         'instance':instance,
-        'id':id,
+        'id':id1,
     }
     return render(request, 'update_client.html', context)
 
